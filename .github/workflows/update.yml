@@ -16,6 +16,11 @@ jobs:
           python-version: "3.12"
       - name: Test offline source guards
         run: python -m unittest discover -s tests -v
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Test browser calculator and filters
+        run: node --test tests/*.test.mjs
       - name: Safely stop automatic use of sunset API
         run: |
           python - <<'PY'
