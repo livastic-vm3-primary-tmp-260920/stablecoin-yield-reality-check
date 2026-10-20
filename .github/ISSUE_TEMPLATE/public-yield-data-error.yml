@@ -1,0 +1,43 @@
+name: Public stablecoin yield data QA / feedback
+description: Report one reproducible issue in the PUBLIC, read-only yield checker. This is FREE feedback, not a purchase or a DeFi trade.
+title: "[Yield data QA] "
+labels: ["user-feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. NEVER post wallet addresses tied to your identity, balances, transaction histories, API keys, private positions, secret recovery phrases, trading strategies, personal identifiers, or customer data. Public pool IDs and third-party public API values only. The tool is a snapshot-based filter, not a smart contract audit or financial advice. Please do NOT send funds or connect a wallet.
+  - type: dropdown
+    id: category
+    attributes:
+      label: What needs attention?
+      options:
+        - Reported APY / base vs reward split
+        - Stale or missing feed
+        - Pool/chain/asset filtering
+        - Illustrative fee break-even calculation
+        - UI/accessibility
+        - Other public QA issue
+    validations:
+      required: true
+  - type: input
+    id: public-pool-id
+    attributes:
+      label: Public pool UUID (optional)
+      description: Only a public DeFiLlama pool identifier, NEVER wallet/account identifiers.
+      placeholder: "00000000-0000-0000-0000-000000000000"
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Exact steps and expected vs observed behavior (no secrets)
+      description: Include public references and snapshot checked timestamp if possible. Never paste private or financial records.
+      placeholder: "1. Go to the free checker. 2. Select Base > USDC. 3. Compare the timestamped, public figures. Expected: ... Observed: ..."
+    validations:
+      required: true
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Confirmation
+      options:
+        - label: "This is public, non-sensitive data only. I understand this report is voluntary feedback, NOT a paid job, service order, audit or payment request."
+          required: true
