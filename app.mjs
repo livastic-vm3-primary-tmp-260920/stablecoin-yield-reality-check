@@ -34,6 +34,33 @@ export function visibleRows(rows,{asset='USDC',chain='all',sort='base',quality='
  });
  return filtered;
 }
+/** Compose only a buyer-initiated draft using already-public, bounded provider metadata.
+ * Never serialize wallet/portfolio/principal inputs; never send an email automatically. */
+export function buyerInquiryHref(row){
+ if(!row || typeof row!=='object')return null;
+ const {id,protocol,chain,asset}=row;
+ if(typeof id!=='string'|| !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/.test(id))return null;
+ if(typeof protocol!=='string'|| !/^[a-z0-9-]{2,48}$/.test(protocol))return null;
+ if(typeof chain!=='string'|| !/^[A-Za-z0-9 -]{2,32}$/.test(chain))return null;
+ if(typeof asset!=='string'|| !/^[A-Z0-9]{2,12}$/.test(asset))return null;
+ const subject='Public yield data QA scope — '+protocol+' '+chain+' '+asset;
+ const message=[
+  'Hello, I selected one PUBLIC DeFi pool in the free yield comparison:',
+  'Provider: DefiLlama Yields; protocol: '+protocol+'; chain: '+chain+'; token: '+asset,
+  'Public pool ID: '+id,
+  '',
+  'Concrete source-data discrepancy I need reviewed:',
+  'Public supporting URL or reported field:',
+  'Is a paid technical QA report worth a fixed scoped quote? (yes/no):',
+  '',
+  'Please confirm exact deliverables, timeline, privacy, acceptance, cancellation/refunds,',
+  'recipient control, Base native Circle USDC token and fixed price before any payment.',
+  'I have NOT attached wallet keys, balances, portfolio data, private files or real trades.',
+  'This is a manual email draft only; no data has been transmitted by the website.'
+ ].join('\n');
+ return 'mailto:onecursor1@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(message);
+}
+
 const flagNames={
  reward_split_unknown:'Rewards breakdown unknown',incentive_heavy:'Incentive-heavy',
  week_change_unavailable:'7d change missing',rate_change_large:'Large weekly change',
@@ -79,6 +106,11 @@ function render(){
   button.setAttribute('aria-label','Calculate hypothetical yield on '+p.protocol+' '+p.chain+' '+p.asset);
   button.addEventListener('click',()=>{
    chosen=p;$('chosen').textContent=p.protocol+' · '+p.chain+' · '+p.asset+' · pool '+p.id.slice(0,8);
+   const buyerDraft=buyerInquiryHref(p);
+   if(buyerDraft){
+    $('request-pool-email').href=buyerDraft;
+    $('request-context').textContent='Optional manual email draft now includes public '+p.protocol+' / '+p.chain+' / '+p.asset+' pool ID '+p.id+'. No portfolio input, wallet data or email is sent until you choose to send it.';
+   }
    calc();render();
   });first.append(button);tr.append(first);
   tr.append(make('td',p.chain+' / '+p.asset));
