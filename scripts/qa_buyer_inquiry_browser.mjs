@@ -4,7 +4,7 @@ import {mkdtemp,readFile,rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {setTimeout as sleep} from 'node:timers/promises';
-const URL='https://livastic-vm3-primary-tmp-260920.github.io/stablecoin-yield-reality-check/';
+const SITE_URL='https://livastic-vm3-primary-tmp-260920.github.io/stablecoin-yield-reality-check/';
 const dir=await mkdtemp(join(tmpdir(),'vm3-buyerdraft-headless-'));
 let chrome=null,ws=null,uid=0;
 const pending=new Map(),errors=[],otherRequests=[];
@@ -43,7 +43,7 @@ try{
   if(x.method==='Runtime.exceptionThrown')errors.push(x.params?.exceptionDetails?.text||'script error');
   if(x.method==='Network.requestWillBeSent'){
    const u=x.params.request?.url||'';
-   if(u.startsWith('http')&&!u.startsWith(URL))otherRequests.push(u.split('?')[0]);
+   if(u.startsWith('http')&&!u.startsWith(SITE_URL))otherRequests.push(u.split('?')[0]);
   }
   if(x.id&&pending.has(x.id)){
    const p=pending.get(x.id);pending.delete(x.id);
@@ -56,7 +56,7 @@ try{
   ws.addEventListener('error',error=>{clearTimeout(timer);reject(error)},{once:true});
  });
  await send('Runtime.enable');await send('Page.enable');await send('Network.enable');
- await send('Page.navigate',{url:URL});
+ await send('Page.navigate',{url:SITE_URL});
  let ready=false;
  for(let i=0;i<90;i++){
   await sleep(135);
@@ -71,7 +71,7 @@ try{
  const poolId=/Public pool ID: ([0-9a-f-]{36})/.exec(body)?.[1];
  if(!poolId)throw new Error('PUBLIC_POOL_ID_NOT_IN_DRAFT');
  if(!selection.info.includes('No portfolio input'))throw new Error('PRIVACY_DISCLOSURE_MISSING');
- if(selection.href!==URL||selection.count<1)throw new Error('UNEXPECTED_NAVIGATION_OR_EMPTY_TABLE');
+ if(selection.href!==SITE_URL||selection.count<1)throw new Error('UNEXPECTED_NAVIGATION_OR_EMPTY_TABLE');
  if(otherRequests.length)throw new Error('UNEXPECTED_EXTERNAL_REQUEST');
  if(errors.length)throw new Error('JS_EXCEPTION');
  console.log(JSON.stringify({status:'PASS',publicPoolId:poolId,renderedPublicRows:selection.count,
