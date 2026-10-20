@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; connect-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta name="description" content="Free no-wallet stablecoin DeFi yield comparison. Base vs incentive APY, 30d average, TVL and gas-cost break-even.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://livastic-vm3-primary-tmp-260920.github.io/stablecoin-yield-reality-check/">
+<title>Stablecoin Yield Reality Check — Base APY, Rewards & Fees | One Cursor</title>
+<style>
+:root{color-scheme:dark;--bg:#071920;--panel:#112a35;--panel2:#193843;--edge:#375560;--ink:#ecf6f6;--muted:#b9d2d5;--green:#b6f6ce;--blue:#aee2ff;--amber:#f7ca82}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15.5px/1.62 system-ui,-apple-system,"Segoe UI",sans-serif}a{color:var(--blue);text-underline-offset:3px}a:focus,button:focus,input:focus,select:focus{outline:3px solid var(--green);outline-offset:2px}header,main,footer{max-width:1170px;margin:auto;padding:24px clamp(14px,3.3vw,40px)}header{display:flex;gap:18px;flex-wrap:wrap;justify-content:space-between;border-bottom:1px solid var(--edge);font-size:13px}header strong{letter-spacing:.08em}p,li{color:var(--muted)}.eyebrow{color:var(--green);text-transform:uppercase;font-weight:850;font-size:12px;letter-spacing:.14em}h1{font-size:clamp(33px,5vw,57px);line-height:1.12;letter-spacing:-.05em;margin:12px 0 22px;max-width:870px}h2{font-size:clamp(23px,3vw,29px);margin:5px 0 13px;line-height:1.25}h3{font-size:18px;margin:5px 0 8px}.hero{padding-top:34px}.hero p{font-size:18px;max-width:950px}.accent{color:var(--green)}.warning{border-left:4px solid var(--amber);background:#332921;border-radius:6px;padding:14px 17px;color:#ffe4ae;margin:20px 0}.warning strong{color:#fff0d0}.card{border:1px solid var(--edge);background:var(--panel);border-radius:12px;padding:clamp(17px,2.2vw,27px);margin:23px 0}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.metric{background:var(--panel2);padding:15px;border:1px solid var(--edge);border-radius:8px}.metric b{display:block;font-size:clamp(21px,3vw,30px);color:var(--green);font-variant-numeric:tabular-nums}.metric span{font-size:12px;color:var(--muted)}.filters{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.cols{display:grid;grid-template-columns:1fr 1fr;gap:20px}.cols .card{margin-top:0}label{display:block;font-weight:730;font-size:13.5px;margin:13px 0 7px}select,input{width:100%;padding:11px;border-radius:7px;border:1px solid #66868f;background:#081f29;color:var(--ink);font:inherit;min-height:45px}button,.button{display:inline-block;cursor:pointer;border:1px solid var(--green);border-radius:7px;padding:11px 18px;background:var(--green);color:#06301e;font-weight:800;font:inherit;min-height:44px;text-decoration:none}button:hover,.button:hover{filter:brightness(1.1);color:#043020}button.secondary{background:transparent;color:var(--green)}.tablewrap{overflow-x:auto;border:1px solid var(--edge);border-radius:9px}table{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}th,td{padding:10px 8px;border-bottom:1px solid var(--edge);text-align:right;white-space:nowrap}th:nth-child(-n+2),td:nth-child(-n+2){text-align:left}th{background:var(--panel2);font-size:12px}td.flags{text-align:left;white-space:normal;min-width:175px;max-width:240px;color:var(--amber);font-size:11.5px}.pick{min-height:32px;font-size:12px;padding:4px 8px;margin-left:9px;background:transparent;color:var(--green);border:1px solid var(--edge);font-weight:750}tr:hover td,tr[aria-selected="true"] td{background:#1e4350}.good{color:var(--green);font-weight:700}.muted{color:var(--muted)}.small{font-size:13px}#result{margin-top:15px;padding:16px;min-height:130px;border:1px solid var(--edge);border-radius:8px;background:#0b2029}.footer{border-top:1px solid var(--edge);font-size:13px}.cta{margin:20px 0}.cta .button{font-weight:850}#row-count{font-weight:800}code{color:var(--green);background:#09202b;padding:1px 4px}@media(max-width:900px){.filters{grid-template-columns:repeat(2,1fr)}.cols{grid-template-columns:1fr}}@media(max-width:500px){.metrics{grid-template-columns:repeat(2,1fr)}.metric:last-child{grid-column:span 2}h1{font-size:33px}}
+</style></head><body>
+<header><a href="https://livastic-vm3-primary-tmp-260920.github.io/"><strong>ONE CURSOR · DEFI DATA QA</strong></a><span>Free · No wallet · No tracking</span></header>
+<main>
+<section class="hero">
+<div class="eyebrow">Read-only yield comparison · public data</div>
+<h1>Before chasing a <span class="accent">10% APY</span>, check where it comes from.</h1>
+<p>Separate <strong>base APY</strong> from <strong>temporary token incentives</strong>, inspect 30-day averages and TVL, and test whether hypothetical returns would even cover deposit, bridge and exit costs.</p>
+<p class="small">Designed for developers, on-chain treasury teams and DeFi researchers. This is a <strong>metadata screener</strong>, not a live position tracker, security audit, endorsement, investment advice or earnings promise. It does not connect to a wallet or submit transactions.</p>
+<div class="warning"><strong>Capital can be lost:</strong> stablecoin depegs, smart-contract exploits, insolvency/bad debt, oracle failures, curator decisions, frozen withdrawals, cross-chain failure, market liquidity and APY changes. A familiar protocol or high TVL is not a safety guarantee. Never move money solely because a row looks attractive.</div>
+</section>
+<section class="card">
+<div class="eyebrow">Live public source · time-stamped local cache</div>
+<h2>Reported markets — filtered, not recommended</h2>
+<div class="metrics"><div class="metric"><b id="all-count">—</b><span>public pools inspected</span></div><div class="metric"><b id="qualified-count">—</b><span>pass metadata gates</span></div><div class="metric"><b id="shown-count">—</b><span>listed here</span></div></div>
+<p id="status" role="status" aria-live="polite">Loading static public data snapshot…</p>
+<p class="small">Source: <a href="https://defillama.com/yields">DefiLlama Yields</a>. Selected EVM chains and major protocols only, single-asset stablecoins, source-reported no impermanent-loss exposure / non-outlier, minimum TVL $10M, APY up to 15%. These are <strong>data filters, not risk due diligence</strong>. DefiLlama's free yields API is changing November 13, 2026. Data older than 24 hours will be marked STALE.</p>
+</section>
+<section class="card" id="markets">
+<h2>Compare reported pool data</h2>
+<p>Rates are snapshots. Rewards can disappear, and TVL does not prove a pool is solvent or secure. An unavailable figure is marked <em>unknown</em>.</p>
+<div class="filters">
+<div><label for="asset">Token</label><select id="asset"><option>USDC</option><option value="all">All tokens</option><option>USDT</option><option>USDS</option><option>DAI</option><option>PYUSD</option><option>RLUSD</option><option>EURC</option><option>USDG</option><option>GHO</option></select></div>
+<div><label for="chain">Chain</label><select id="chain"><option value="all">All chains</option><option>Ethereum</option><option>Base</option><option>Arbitrum</option><option>Optimism</option><option>Polygon</option></select></div>
+<div><label for="sort">Sort</label><select id="sort"><option value="base">Base APY ↓</option><option value="tvl">TVL ↓</option><option value="total">Total APY ↓</option><option value="rewards">Rewards share ↓</option></select></div>
+<div><label for="quality">Data attention</label><select id="quality"><option value="all">All flags</option><option value="rewards">Incentive-heavy</option><option value="volatile">Large 7d change</option><option value="unknown">Missing information</option></select></div>
+</div>
+<p><span id="row-count">0</span> matches. <button class="secondary" id="export" type="button">Export public CSV</button></p>
+<div class="tablewrap"><table><thead><tr><th>Protocol / calculate</th><th>Chain / token</th><th>TVL USD</th><th>Base APY</th><th>Rewards</th><th>Headline APY</th><th>30d average</th><th>7d Δ (pp)</th><th>Data flags</th></tr></thead><tbody id="body"><tr><td colspan="9">Loading…</td></tr></tbody></table></div>
+<p class="small">No source contract audit, live on-chain verification or wallet inspection is performed. The source may include different markets under one protocol and asset. Filters exclude smaller/higher-APY pools, potentially omitting valid or invalid options.</p>
+</section>
+<div class="cols">
+<section class="card" id="calculator">
+<div class="eyebrow">100% local calculator</div><h2>Would yield cover your fees?</h2>
+<p>Click “Compare” on a market row. Provide only an <strong>imaginary</strong> principal and estimated total transaction costs. We divide source-reported annual rate linearly over your days; no compounding, interest-rate changes, taxes, token price moves, position risk or losses are modeled.</p>
+<p><strong>Selected:</strong> <span id="chosen">None</span></p>
+<label for="principal">Hypothetical principal (USD)</label><input id="principal" type="number" min="0" max="100000000" value="1000" step="10">
+<label for="days">Days held (1–365)</label><input id="days" type="number" min="1" max="365" value="30" step="1">
+<label for="cost">Assumed combined deposit + bridge + exit fees (USD)</label><input id="cost" type="number" min="0" max="1000000" value="12" step="0.1">
+<div id="result" role="status" aria-live="polite">Choose one row above to calculate illustrative cost break-even.</div>
+<p class="small">This is not a future yield forecast, net profit guarantee or risk-adjusted model. Fee amounts vary by transaction; your loss could exceed the displayed estimated income.</p>
+</section>
+<section class="card" id="offer">
+<div class="eyebrow">For developers and protocol operators</div><h2>Want a reproducible feed QA report?</h2>
+<p>If you have a concrete source discrepancy, I can inspect <strong>up to three public yield pool IDs</strong>, document base/reward/headline APY inconsistencies, and supply a deterministic offline reproduction script with annotated findings. All analysis uses publicly authorized data only.</p>
+<p><strong>Indicative technical QA: 19 native Circle USDC on Base</strong> for one agreed, bounded scope. Not an automatic purchase: no payment is requested until a real buyer agrees in writing on scope, payee, network, acceptance conditions, timing, privacy and refund terms. No personalized investment recommendation, tax certification, exploit audit or funded returns guaranteed. Transparent AI assistance.</p>
+<p>Use the <strong>same human owner's existing enquiry form</strong> to describe a broad issue (no real portfolio values, client records, secrets, raw CSV or wallet credentials). If this free page resolves your question, pay nothing.</p>
+<p class="cta"><a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSe_N8anCGUDmWdNZLnGwFRfhYaaCsB18BKdYd_VsFZp1xWm3g/viewform" target="_blank" rel="noopener noreferrer">Request QA scope · no payment ↗</a></p>
+<p class="small">New offer; no paid buyer, order, delivery or revenue is claimed by publishing it.</p>
+</section></div>
+<section class="card" id="method"><h2>What is measured — and what is not</h2>
+<ul>
+<li><strong>Base / rewards / total APY:</strong> the third-party feed's apyBase / apyReward / apy; reward split is explicitly unknown if missing, never silently replaced with zero.</li>
+<li><strong>30-day average and 7-day change:</strong> provider-reported apyMean30d and apyPct7D; these are retrospective estimates, not forward guarantees.</li>
+<li><strong>Incentive-heavy flag:</strong> rewards ≥ 30% of headline APY. <strong>Large weekly move:</strong> absolute 7d change ≥ 3 percentage points or 60% of headline APY. Flags are neither audits nor actuarial probability estimates.</li>
+<li><strong>No risk evaluation:</strong> token depeg, bad debt, oracle manipulation, smart-contract code and governance, withdrawal restrictions, fees/slippage and legal/regulatory considerations are NOT verified.</li>
+<li><strong>Open, reproducible code:</strong> <a href="https://github.com/livastic-vm3-primary-tmp-260920/stablecoin-yield-reality-check">GitHub source, test suite and timestamped local snapshot</a>. The free API <a href="https://yields.llama.fi/pools">is scheduled to change November 13, 2026</a>; after its announced sunset, refreshing fails closed rather than misrepresenting stale data.</li>
+</ul></section>
+<details class="card" lang="ko"><summary><strong>한국어 안내 · USDC 및 스테이블코인 수익률 검증</strong></summary><p>공개 데이터에서 기본 수익률·보상 토큰 수익률·TVL·30일 평균을 확인하고, 가상의 투자금·거래비용을 입력해 손익분기점을 추정할 수 있습니다. 지갑 연결이나 예치가 없습니다. 투자 추천, 자산 보안 보증, 투자 수익 약속이 아닙니다. 원금 손실이 가능하며, 출금 제한 등 주요 위험은 계산에 포함되지 않습니다. 데이터에 오류가 있을 경우 구체적 범위에 대한 별도 합의 이후에만 유료 기술 검증을 진행합니다.</p></details>
+</main>
+<footer class="footer">ONE CURSOR · AI-assisted read-only research tool · 2026 · <a href="https://livastic-vm3-primary-tmp-260920.github.io/">Home</a> · <a href="https://github.com/livastic-vm3-primary-tmp-260920/stablecoin-yield-reality-check">Source</a> · Listing a pool is not an endorsement or record of earnings.</footer>
+<script type="module" src="./app.mjs"></script>
+</body></html>
