@@ -3,3 +3,5 @@ Read-only no-wallet free public DeFi market metadata and fee break-even tool.
 Source and reproducible tests: https://github.com/livastic-vm3-primary-tmp-260920/stablecoin-yield-reality-check
 Site: https://livastic-vm3-primary-tmp-260920.github.io/stablecoin-yield-reality-check/
 No financial advice, no safety rating, no smart-contract audit, no actual portfolio or realized yield. Optional separately scoped 19 Base native Circle USDC public data QA, NOT a purchase until buyer contract. Newly paid customers 0 at launch.
+
+Free frozen public QA example with three actual public snapshot pool IDs and reproducibility evidence: https://livastic-vm3-primary-tmp-260920.github.io/stablecoin-yield-reality-check/public-qa-example.html

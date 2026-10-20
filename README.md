@@ -37,3 +37,11 @@ Publication/update is automated via GitHub Actions branch data commit; build use
 - Official DefiLlama reference rates: https://defillama.com/yields/rates
 
 At publication: independently verified paying users 0; signed buyer orders 0; revenue newly earned from this application 0 USDC.
+
+## Free reproducible sample report (2026-10-21)
+
+- Buyer-facing: https://livastic-vm3-primary-tmp-260920.github.io/stablecoin-yield-reality-check/public-qa-example.html
+- Frozen timestamped 3-ID attributable public example: data/public-qa-example-20261021.json. The original feed JSON SHA-256 is recorded, but this historical example is never represented as today's rate.
+- Reproduction: python3 scripts/build_qa_sample.py; tests: python3 -m unittest discover -s tests -v.
+- The case study distinguishes provider-reported explicit reward zero, incentive-heavy APY, and UNKNOWN reward breakdown. Illustrative 30-day returns subtract a hypothetical $12 fee and assume frozen rates; no real user funds, investment advice, audited contracts, performance or sales.
+- The optional manual 19 native Circle Base8453 USDC QA service requires independent human customer agreement, scope, verified recipient, cancellation/refunds, and receipt finality before any revenue claim.

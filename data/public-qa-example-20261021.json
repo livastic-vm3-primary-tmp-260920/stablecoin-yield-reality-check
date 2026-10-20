@@ -1,0 +1,64 @@
+{
+  "report_id": "vm3-public-yield-qa-example-20261021",
+  "checked_utc": "2026-10-20T20:53:08.849866Z",
+  "source": "https://yields.llama.fi/pools",
+  "source_snapshot_sha256": "29e6f7bdc8e1374e8f2244d77afeb4d5bdc901d2a5c4868a72519b3acdff07c1",
+  "illustrative": {
+    "principal_usd": 1000,
+    "days": 30,
+    "assumed_roundtrip_cost_usd": 12
+  },
+  "method": "Snapshot-only illustrative straight-line percentages, no compounding or forecast. Percentages are provider fields, not verified on-chain or audit.",
+  "pools": [
+    {
+      "id": "7da72d09-56ca-4ec5-a45f-59114353e487",
+      "protocol": "compound-v3",
+      "chain": "Ethereum",
+      "asset": "USDC",
+      "tvl_usd": 35455076,
+      "base_pct": 5.6648,
+      "rewards_pct": 0.0,
+      "apy_pct": 5.6648,
+      "mean30_pct": 4.8508,
+      "delta7_pctpoints": -0.788,
+      "flags": [
+        "protocol_and_issuer_risk_not_assessed"
+      ],
+      "case": "No reported reward component"
+    },
+    {
+      "id": "7372edda-f07f-4598-83e5-4edec48c4039",
+      "protocol": "fluid-lending",
+      "chain": "Base",
+      "asset": "USDC",
+      "tvl_usd": 10910117,
+      "base_pct": 4.99,
+      "rewards_pct": 3.2,
+      "apy_pct": 8.19,
+      "mean30_pct": 8.2224,
+      "delta7_pctpoints": -1.0,
+      "flags": [
+        "incentive_heavy",
+        "protocol_and_issuer_risk_not_assessed"
+      ],
+      "case": "Reward-heavy headline"
+    },
+    {
+      "id": "4438dabc-7f0c-430b-8136-2722711ae663",
+      "protocol": "fluid-lending",
+      "chain": "Ethereum",
+      "asset": "USDC",
+      "tvl_usd": 135797608,
+      "base_pct": 5.64,
+      "rewards_pct": null,
+      "apy_pct": 5.64,
+      "mean30_pct": 5.3331,
+      "delta7_pctpoints": -0.09,
+      "flags": [
+        "reward_split_unknown",
+        "protocol_and_issuer_risk_not_assessed"
+      ],
+      "case": "Missing reward breakdown"
+    }
+  ]
+}
