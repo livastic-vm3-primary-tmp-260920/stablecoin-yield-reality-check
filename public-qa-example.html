@@ -27,7 +27,7 @@
 <p><strong>Missing values:</strong> an omitted reward field remains UNKNOWN; it is never automatically set to zero. Any real audit would need source-level investigation, not an assumption that reported values reflect available withdrawals.</p>
 </section>
 <section class="card"><h2>3. Reproduce and inspect the evidence</h2>
-<p>Read the <a href="./data/public-qa-example-20261021.json">three public records</a> with full pool IDs, timestamp and SHA-256 of the original timestamped JSON extract. The reproducible <a href="https://github.com/livastic-vm3-primary-tmp-260920/stablecoin-yield-reality-check/blob/main/scripts/build_qa_sample.py">Python script</a> uses standard-library Decimal and safely escapes public strings.</p>
+<p>Read the <a href="./data/public-qa-example-20261021.json">three public records</a> with full pool IDs, timestamp and SHA-256 of the <a href="./data/pools-20261021-frozen.json">original frozen 29-row source extract</a>. The reproducible <a href="https://github.com/livastic-vm3-primary-tmp-260920/stablecoin-yield-reality-check/blob/main/scripts/build_qa_sample.py">Python script</a> uses standard-library Decimal and safely escapes public strings. The frozen extract is for free evidence and attribution, never a current price quote.</p>
 <p>Formula: <code>illustrative gross = USD principal × reported APY (%) × days / 36500</code>; hypothetical net = gross - user-assumed total fees. No wallet, client CSV, private transaction data, tracking, smart-contract interaction, signature, payment, or legal/tax advice.</p>
 </section>
 <section class="card" id="request"><h2>Have a real discrepancy in 1–3 public pool IDs?</h2>

@@ -1,6 +1,6 @@
 """Reproducibility and truthful financial-unit invariants for free case study."""
 from pathlib import Path
-import json,sys,unittest
+import json,sys,unittest,hashlib
 from decimal import Decimal
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
@@ -18,6 +18,18 @@ class PublicQADemoTests(unittest.TestCase):
         self.assertEqual(self.data['source'],'https://yields.llama.fi/pools')
         self.assertTrue(self.data['checked_utc'].startswith('2026-10-20T20:'))
         self.assertEqual(len(self.data['source_snapshot_sha256']),64)
+        frozen=(ROOT/'data/pools-20261021-frozen.json').read_bytes()
+        self.assertEqual(hashlib.sha256(frozen).hexdigest(),self.data['source_snapshot_sha256'])
+        full=json.loads(frozen)
+        self.assertEqual(full['checked_utc'],self.data['checked_utc'])
+        self.assertEqual(full['source'],self.data['source'])
+        self.assertEqual(full['displayed'],len(full['pools']))
+        for row in self.rows:
+            match=[p for p in full['pools'] if p['id']==row['id']]
+            self.assertEqual(len(match),1)
+            for key,value in row.items():
+                if key!='case': self.assertEqual(match[0][key],value)
+
     def test_base_case_fees_exceed_illustrative_return(self):
         row=next(r for r in self.rows if r['case']=='No reported reward component')
         v=model(row,1000,30,12)
