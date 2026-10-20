@@ -45,3 +45,12 @@ At publication: independently verified paying users 0; signed buyer orders 0; re
 - Reproduction: python3 scripts/build_qa_sample.py; tests: python3 -m unittest discover -s tests -v.
 - The case study distinguishes provider-reported explicit reward zero, incentive-heavy APY, and UNKNOWN reward breakdown. Illustrative 30-day returns subtract a hypothetical $12 fee and assume frozen rates; no real user funds, investment advice, audited contracts, performance or sales.
 - The optional manual 19 native Circle Base8453 USDC QA service requires independent human customer agreement, scope, verified recipient, cancellation/refunds, and receipt finality before any revenue claim.
+
+
+## Optional voluntary USDC support — distinct from paid work
+
+The original free checker remains free. It also displays one OPTIONAL 1 native-Circle-USDC-on-Base tip example without requiring a wallet, payment, login or external transaction on this site. A voluntary tip buys nothing and is not an order, charitable tax deduction, security audit or paid technical QA. The 19-USDC public-data QA report remains an independently pre-agreed scoped service only. No visitor, tip, signed paid order or receipt is claimed by shipping a static copy-address control.
+
+The displayed public receiver 0x6b01efA0705E91a7aca54271510bf9e594717f34 was checked on Oct 21, 2026 against the EXISTING SAME-ONE-OWNER VM5 live merchant canonical x402 v2 HTTP402 payment requirements at https://vm5-openapi-x402.onrender.com/v1/csv-report (network=eip155:8453, native Circle USDC=0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913, same payTo) and prior original VM5 OpenTask registered payout address. This public address has historical externally confirmed native Base Circle USDC receipts, but that does not establish an independent certification of future recovery/signing control. Everyone must verify recipient/asset/network and costs before independently choosing to send anything. Network fees and irreversible transfer risk apply.
+
+The tip.mjs optional clipboard-only helper validates exact public constants before copying and NEVER accesses visitor wallet providers, RPC, funds, private data, cookies or network. VM5's original canonical receive-only six-hourly watch already monitors the public address. No new cron jobs, merchant registrations, user account, signer, signed transactions, rate resale or paid subscriptions.
